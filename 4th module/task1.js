@@ -1,4 +1,6 @@
 
+
+
 function targetFinder(nums, target) {
     let n = nums.length;
     console.log(n);
@@ -14,6 +16,8 @@ function targetFinder(nums, target) {
     return -1
 }
 
+// Time Complexity-->
+// Space Complexity-->
 
 console.log(targetFinder([2, 6, 11, 7], 9));
 console.log(targetFinder([3, 2, 4], 6));
