@@ -16,9 +16,9 @@ function targetFinder(nums, target) {
     return -1
 }
 
-// Time Complexity-->
-// Space Complexity-->
+// Time Complexity-->O(n^2)
+// Space Complexity--> O(1)
 
-console.log(targetFinder([2, 6, 11, 7], 9));
+console.log(targetFinder([2, 7, 11, 5], 9));
 console.log(targetFinder([3, 2, 4], 6));
 console.log(targetFinder([3, 3], 6));

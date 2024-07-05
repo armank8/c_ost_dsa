@@ -16,5 +16,8 @@ function stockProfit(prices) {
 
 }
 
+// Time Complexity-->O(n^2)
+// Space Complexity--> O(1)
+
 console.log(stockProfit([7, 1, 5, 3, 6, 4]))
 console.log(stockProfit( [7,6,4,3,1]))
