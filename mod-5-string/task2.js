@@ -7,9 +7,8 @@ function haystackNeedle(haystack, needle) {
     let count = 0;
     // console.log(count);
     for (let i = 0; i <= h - n; i++) {
-        count = 0;
-        // console.log(count);
-        for (j = 0; j < n; j++) {
+        // count = 0;       
+        for (let j = 0; j < n; j++) {
             if (haystack[i + j] === needle[j]) {
                 count++;
                 console.log(haystack[i + j], needle[j]);
@@ -21,10 +20,14 @@ function haystackNeedle(haystack, needle) {
                 return 0;
             }
         }
+        console.log(count);
         count = 0;
     }
     return -1;
 
 }
-
+// Time Complexity:  O(h*n)
+// Space Complexity:  O(1)
 console.log(haystackNeedle('sadbutsad', 'sad'));
+console.log(haystackNeedle('codemama', 'ostad'));
+console.log(haystackNeedle('hellobd', 'helo'));
