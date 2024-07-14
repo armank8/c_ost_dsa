@@ -1,11 +1,7 @@
 function shuffled(s, indices) {
-    console.log(s, indices);
     let newS = [];
     for (let values of indices) {
-        // console.log(values);
-        // console.log(newS[values]);
         newS.push(s[values]);
-        console.log(newS);
     }
     // newS.join(',');
     return (newS.join(''));
