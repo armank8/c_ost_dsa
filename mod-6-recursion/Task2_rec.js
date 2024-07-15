@@ -1,20 +1,12 @@
+function multiply(a, b) {
+    if (b == 0) {
+        return 0;
+    }  
+    return a + multiply(a, b - 1);
 
-function isP(s, i, j) {
-    console.log(s, i, j);
-    if (i >= j) {
-        return true;
-    }
-
-    if (s[i] !== s[j]) {
-        console.log(s[i], s[j], i, j);
-        return false;
-    }
-    return isP(s, i + 1, j - 1);
 }
-
-function isPalin(s) {
-    n = s.length;
-    return isP(s, 0, n - 1);
-}
-
-console.log(isPalin('madam'));
+// Time Complexity : O(b)
+// Space Complexity : O(b)
+console.log(multiply(4, 5));
+// console.log(multiply(3,3));
+// console.log(multiply(0,2));
