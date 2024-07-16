@@ -8,5 +8,5 @@ function multiply(a, b) {
 // Time Complexity : O(b)
 // Space Complexity : O(b)
 console.log(multiply(4, 5));
-// console.log(multiply(3,3));
-// console.log(multiply(0,2));
+console.log(multiply(3,3));
+console.log(multiply(0,2));
