@@ -17,4 +17,9 @@ function isPalin(s) {
     return isP(s, 0, n - 1);
 }
 
+// Time Complexity : O(logn)
+// Space Complexity : O(n)
+
 console.log(isPalin('madam'));
+console.log(isPalin('adam'));
+console.log(isPalin('tenet'));
