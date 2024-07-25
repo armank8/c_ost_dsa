@@ -33,9 +33,27 @@ class LinkedList {
             this.head = newNode;
         }
     }
+
+    insertAtPos(value, pos) {
+        const newNode = new Node(value);
+        let currNode = this.head;
+        let count = 0;
+        while (count !== pos) {
+            count++;
+            console.log(count);
+            currNode = currNode.next;
+            console.log(currNode);
+        }
+        console.log(currNode);
+        newNode.next = currNode.next;
+        currNode.next = newNode;
+
+        return this;
+
+    }
     display() {
         let currNode = this.head;
-        let values=[];
+        let values = [];
         while (currNode !== null) {
             values.push(currNode.value);
             // console.log(currNode.value);
@@ -59,21 +77,15 @@ class LinkedList {
 
 }
 
-
-
-
-
-
-
-
 const ll = new LinkedList();
 ll.insertAtEnd(5);
 ll.insertAtEnd(10);
 ll.insertAtEnd(11);
-ll.insertAtFirst(12);
-ll.insertAtFirst(13);
+ll.insertAtFirst(4);
+ll.insertAtFirst(3);
 console.log(ll.display());
 console.log(ll.count());
+console.log(ll.insertAtPos(15, 3));
 // const ll1 = new LinkedList(10);
 
 console.log(ll);
