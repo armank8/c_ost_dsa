@@ -54,17 +54,30 @@ class LinkedList {
     insert(value, pos) {
         let newNode = new Node(value);
         let temp = this.head;
-        let prev;
-        for (let i = 0; i < pos - 1; i++) {
+        let prev = temp;
+        for (let i = 1; i < pos; i++) {
             console.log(i);
-            prev=temp;
+            prev = temp;
             temp = temp.next;
         }
         console.log(temp);
         console.log(prev);
         newNode.next = temp;
-        prev.next=newNode
+        prev.next = newNode
         return this;
+    }
+
+    remove(pos) {
+        let temp = this.head;
+        let prev;
+        for (let i = 1; i < pos; i++) {
+            prev = temp;
+            temp = temp.next;
+
+        }
+        // console.log(temp)
+        // console.log(prev)
+        prev.next=temp.next;
     }
     display() {
         let currNode = this.head;
@@ -104,8 +117,9 @@ ll.unshift(2);
 ll.unshift(1);
 // ll.shift();
 // console.log(ll.pop());
-// console.log(ll.insert(15, 3));
+// console.log(ll.insert(15, 2));
 // console.log(ll.insert(16, 5));
+console.log(ll.remove(2));
 console.log(ll.count());
 console.log(ll.display());
 // const ll1 = new LinkedList(10);
