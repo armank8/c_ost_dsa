@@ -10,7 +10,7 @@ class LinkedList {
         this.head = null
     }
 
-    insertAtEnd(value) {
+    push(value) {
         const newNode = new Node(value);
         console.log(newNode);
         if (this.head === null) {
@@ -24,7 +24,18 @@ class LinkedList {
         }
     }
 
-    insertAtFirst(value) {
+    pop() {
+        let temp = this.head;
+        let prev;
+        while (temp.next) {
+            prev = temp;
+            temp = temp.next;
+        }
+        prev.next = null;
+        return temp;
+    }
+
+    unshift(value) {
         const newNode = new Node(value);
         if (this.head === null) {
             this.head = newNode;
@@ -34,11 +45,18 @@ class LinkedList {
         }
     }
 
+    shift() {
+        let temp = this.head;
+        this.head = this.head.next;
+        temp.next = null;
+    }
+
     insertAtPos(value, pos) {
         const newNode = new Node(value);
         let currNode = this.head;
         let count = 0;
-        while (count !== pos) {
+        console.log(count);
+        while (count < pos) {
             count++;
             console.log(count);
             currNode = currNode.next;
@@ -74,18 +92,21 @@ class LinkedList {
         }
         return count;
     }
+   
+  
 
 }
 
 const ll = new LinkedList();
-ll.insertAtEnd(5);
-ll.insertAtEnd(10);
-ll.insertAtEnd(11);
-ll.insertAtFirst(4);
-ll.insertAtFirst(3);
-console.log(ll.display());
+ll.push(8);
+ll.push(9);
+ll.unshift(4);
+ll.unshift(3);
+ll.shift();
 console.log(ll.count());
-console.log(ll.insertAtPos(15, 3));
+console.log(ll.pop());
+// console.log(ll.insertAtPos(15, 3));
+console.log(ll.display());
 // const ll1 = new LinkedList(10);
 
 console.log(ll);
