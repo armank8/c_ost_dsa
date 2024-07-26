@@ -51,23 +51,20 @@ class LinkedList {
         temp.next = null;
     }
 
-    insertAtPos(value, pos) {
-        const newNode = new Node(value);
-        let currNode = this.head;
-        let count = 0;
-        console.log(count);
-        while (count < pos) {
-            count++;
-            console.log(count);
-            currNode = currNode.next;
-            console.log(currNode);
+    insert(value, pos) {
+        let newNode = new Node(value);
+        let temp = this.head;
+        let prev;
+        for (let i = 0; i < pos - 1; i++) {
+            console.log(i);
+            prev=temp;
+            temp = temp.next;
         }
-        console.log(currNode);
-        newNode.next = currNode.next;
-        currNode.next = newNode;
-
+        console.log(temp);
+        console.log(prev);
+        newNode.next = temp;
+        prev.next=newNode
         return this;
-
     }
     display() {
         let currNode = this.head;
@@ -92,20 +89,24 @@ class LinkedList {
         }
         return count;
     }
-   
-  
+
+
 
 }
 
 const ll = new LinkedList();
+ll.push(7);
 ll.push(8);
-ll.push(9);
+// ll.push(9);
 ll.unshift(4);
 ll.unshift(3);
-ll.shift();
+ll.unshift(2);
+ll.unshift(1);
+// ll.shift();
+// console.log(ll.pop());
+// console.log(ll.insert(15, 3));
+// console.log(ll.insert(16, 5));
 console.log(ll.count());
-console.log(ll.pop());
-// console.log(ll.insertAtPos(15, 3));
 console.log(ll.display());
 // const ll1 = new LinkedList(10);
 
