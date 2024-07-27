@@ -6,8 +6,11 @@ class Node {
 }
 
 class LinkedList {
-    constructor() {
-        this.head = null
+    constructor(value) {
+        const newNode = new Node(value);
+        this.head = newNode;
+        this.tail = newNode;
+        this.length = 1;
     }
 
     push(value) {
@@ -77,7 +80,7 @@ class LinkedList {
         }
         // console.log(temp)
         // console.log(prev)
-        prev.next=temp.next;
+        prev.next = temp.next;
     }
     display() {
         let currNode = this.head;
@@ -103,13 +106,28 @@ class LinkedList {
         return count;
     }
 
+    reverse() {
+        let temp = this.head;
+        let next = null;
+        let prev = null;
+        console.log(this.count());
+        for (let i = 1; i <= this.count(); i++) {
+            console.log(i);
+            next = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = next;
+        }
 
+        return this
+    }
 
 }
 
-const ll = new LinkedList();
-ll.push(7);
-ll.push(8);
+const ll = new LinkedList(10);
+console.log(ll);
+// ll.push(7);
+// ll.push(8);
 // ll.push(9);
 ll.unshift(4);
 ll.unshift(3);
@@ -119,9 +137,10 @@ ll.unshift(1);
 // console.log(ll.pop());
 // console.log(ll.insert(15, 2));
 // console.log(ll.insert(16, 5));
-console.log(ll.remove(2));
+// console.log(ll.remove(2));
 console.log(ll.count());
 console.log(ll.display());
-// const ll1 = new LinkedList(10);
+
+console.log(ll.reverse());
 
 console.log(ll);
