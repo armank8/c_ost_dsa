@@ -12,21 +12,51 @@ class LinkedList {
         this.tail = newNode;
         this.length = 1;
     }
-
+    // adding at the end : time com : O(1)
     push(value) {
         const newNode = new Node(value);
         console.log(newNode);
-        if (this.head === null) {
+        if (!this.head) {
             this.head = newNode;
+            this.tail = newNode;
         } else {
-            let currNode = this.head;
-            while (currNode.next !== null) {
-                currNode = currNode.next;
-            }
-            currNode.next = newNode;
+            this.tail.next = newNode;
+            this.tail = newNode;
         }
+        this.length++;
     }
 
+    // adding at the beginning ::: time com : O(1)
+    unshift(value) {
+        const newNode = new Node(value);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.length++;
+    }
+
+    // remove from start :: time comp: O(1) 
+    shift() {
+        if (!this.head) return null;
+
+        let temp = this.head;
+        this.head = this.head.next;
+        temp.next = null;
+        this.length--;
+
+        if (this.length === 0) {
+            this.tail = null;
+        }
+
+        return temp;
+    }
+
+
+    // remove from end :: time comp: O() 
     pop() {
         let temp = this.head;
         let prev;
@@ -38,21 +68,7 @@ class LinkedList {
         return temp;
     }
 
-    unshift(value) {
-        const newNode = new Node(value);
-        if (this.head === null) {
-            this.head = newNode;
-        } else {
-            newNode.next = this.head;
-            this.head = newNode;
-        }
-    }
 
-    shift() {
-        let temp = this.head;
-        this.head = this.head.next;
-        temp.next = null;
-    }
 
     insert(value, pos) {
         let newNode = new Node(value);
