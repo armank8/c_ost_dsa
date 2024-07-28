@@ -12,6 +12,7 @@ class LinkedList {
         this.tail = newNode;
         this.length = 1;
     }
+
     // adding at the end : time com : O(1)
     push(value) {
         const newNode = new Node(value);
@@ -55,16 +56,20 @@ class LinkedList {
         return temp;
     }
 
-
     // remove from end :: time comp: O() 
     pop() {
+        if (!this.head) return null;
+
         let temp = this.head;
-        let prev;
+        let pre= this.head;;
         while (temp.next) {
-            prev = temp;
+            pre = temp;
             temp = temp.next;
         }
-        prev.next = null;
+        pre.next = null;
+        this.tail=pre;
+        this.length--;
+        
         return temp;
     }
 
