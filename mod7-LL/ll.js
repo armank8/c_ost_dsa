@@ -40,7 +40,7 @@ class LinkedList {
         this.length++;
     }
 
-    // remove from start :: time comp: O(1) 
+    // remove from beginning :: time comp: O(1) 
     shift() {
         if (!this.head) return null;
 
@@ -56,39 +56,72 @@ class LinkedList {
         return temp;
     }
 
-    // remove from end :: time comp: O() 
+    // remove from end :: time comp: O(n) 
     pop() {
         if (!this.head) return null;
 
         let temp = this.head;
-        let pre= this.head;;
+        let pre = this.head;;
         while (temp.next) {
             pre = temp;
             temp = temp.next;
         }
         pre.next = null;
-        this.tail=pre;
+        this.tail = pre;
         this.length--;
-        
+
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+
         return temp;
     }
 
+    // find item at specific index :: time comp: O(n)
+    get(index) {
+        if (index < 0 || this.index >= this.length) return null;
+        if (!this.head) return null;
 
-
-    insert(value, pos) {
-        let newNode = new Node(value);
         let temp = this.head;
-        let prev = temp;
-        for (let i = 1; i < pos; i++) {
-            console.log(i);
-            prev = temp;
+        for (let i = 0; i < index; i++) {
             temp = temp.next;
         }
-        console.log(temp);
-        console.log(prev);
+        return temp;
+    }
+
+    // insert item at specific index :: time comp: O(n)
+    set(index, value) {
+        let temp = this.get(index);
+        if (temp) {
+            temp.value = value;
+        }
+        return temp;
+    }
+
+    // insert node at specific index :: time comp: O(n)
+    insert(index, value) {
+        if (index < 0 || index > this.length) return null;
+        // insert node at beginning
+        if (index === 0) return this.unshift(value);
+
+        // insert node at the end
+        if (index === this.length) return this.push(value);
+
+        // inserting in between
+        const newNode = new Node(value);
+        let temp = this.head;
+        let pre = this.head;
+        for (let i = 0; i < index; i++) {
+            pre = temp;
+            temp = temp.next;
+        }
         newNode.next = temp;
-        prev.next = newNode
-        return this;
+        pre.next = newNode;
+
+        console.log(pre);
+        console.log(temp);
+
     }
 
     remove(pos) {
@@ -148,20 +181,19 @@ class LinkedList {
 const ll = new LinkedList(10);
 console.log(ll);
 // ll.push(7);
-// ll.push(8);
-// ll.push(9);
 ll.unshift(4);
 ll.unshift(3);
 ll.unshift(2);
 ll.unshift(1);
-// ll.shift();
 // console.log(ll.pop());
-// console.log(ll.insert(15, 2));
-// console.log(ll.insert(16, 5));
-// console.log(ll.remove(2));
+console.log(ll.insert(3, 15));
+console.log(ll.insert(1, 11));
 console.log(ll.count());
+console.log(ll.get(3));
+// console.log(ll.set(3,11));
+
 console.log(ll.display());
 
-console.log(ll.reverse());
+// console.log(ll.reverse());
 
 console.log(ll);
