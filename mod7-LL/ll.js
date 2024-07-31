@@ -132,7 +132,7 @@ class LinkedList {
         if (index === 0) return this.shift();
 
         // remove node at the end
-        if (index === this.length-1) return this.pop();
+        if (index === this.length - 1) return this.pop();
 
         // remove in between
         let temp = this.head;
@@ -141,12 +141,12 @@ class LinkedList {
             prev = temp;
             temp = temp.next;
 
-        }       
+        }
         prev.next = temp.next;
         this.length--;
         return temp;
     }
-    
+
     display() {
         let currNode = this.head;
         let values = [];
@@ -160,31 +160,47 @@ class LinkedList {
     }
 
     count() {
-        let currNode = this.head;
+        let temp = this.head;
         let count = 0;
-        // console.log(currNode);
-        while (currNode !== null) {
+        while (temp) {
             count++;
-            // console.log(currNode.value, count);
-            currNode = currNode.next;
+            temp=temp.next;
         }
         return count;
     }
 
+    // reversing lists 
+    // reverse() {
+    //     let temp = this.head;
+    //     let next = null;
+    //     let prev = null;
+    //     console.log(this.count());
+    //     for (let i = 1; i <= this.count(); i++) {
+    //         console.log(i);
+    //         next = temp.next;
+    //         temp.next = prev;
+    //         prev = temp;
+    //         temp = next;
+    //     }
+
+    //     return this
+    // }
     reverse() {
-        let temp = this.head;
-        let next = null;
-        let prev = null;
         console.log(this.count());
-        for (let i = 1; i <= this.count(); i++) {
+        let temp = this.head;
+        this.head = this.tail;
+        this.tail = temp;
+
+        let next = temp.next;
+        let prev = null;
+        for (let i = 0; i < this.length; i++) {
             console.log(i);
             next = temp.next;
             temp.next = prev;
             prev = temp;
             temp = next;
         }
-
-        return this
+        return this;
     }
 
 }
@@ -192,18 +208,17 @@ class LinkedList {
 const ll = new LinkedList(10);
 console.log(ll);
 // ll.push(7);
-ll.unshift(4);
 ll.unshift(3);
 ll.unshift(2);
 ll.unshift(1);
 // console.log(ll.pop());
 // console.log(ll.insert(3, 15));
-// console.log(ll.insert(1, 11));
-console.log(ll.count());
-console.log(ll.get(3));
+// console.log(ll.get(3));
 // console.log(ll.set(3,11));
 
-console.log(ll.remove(4));
+console.log(ll.count());
+// console.log(ll.remove(4));
+console.log(ll.reverse());
 console.log(ll.display());
 
 // console.log(ll.reverse());
