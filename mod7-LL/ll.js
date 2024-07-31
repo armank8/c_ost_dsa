@@ -118,24 +118,35 @@ class LinkedList {
         }
         newNode.next = temp;
         pre.next = newNode;
+        this.length++;
 
-        console.log(pre);
-        console.log(temp);
+        // console.log(pre);
+        // console.log(temp);
 
     }
 
-    remove(pos) {
+    // remove node at specific index :: time comp: O(n)
+    remove(index) {
+        if (index < 0 || index >= this.length) return null;
+        // remove node at beginning
+        if (index === 0) return this.shift();
+
+        // remove node at the end
+        if (index === this.length-1) return this.pop();
+
+        // remove in between
         let temp = this.head;
         let prev;
-        for (let i = 1; i < pos; i++) {
+        for (let i = 0; i < index; i++) {
             prev = temp;
             temp = temp.next;
 
-        }
-        // console.log(temp)
-        // console.log(prev)
+        }       
         prev.next = temp.next;
+        this.length--;
+        return temp;
     }
+    
     display() {
         let currNode = this.head;
         let values = [];
@@ -186,12 +197,13 @@ ll.unshift(3);
 ll.unshift(2);
 ll.unshift(1);
 // console.log(ll.pop());
-console.log(ll.insert(3, 15));
-console.log(ll.insert(1, 11));
+// console.log(ll.insert(3, 15));
+// console.log(ll.insert(1, 11));
 console.log(ll.count());
 console.log(ll.get(3));
 // console.log(ll.set(3,11));
 
+console.log(ll.remove(4));
 console.log(ll.display());
 
 // console.log(ll.reverse());
