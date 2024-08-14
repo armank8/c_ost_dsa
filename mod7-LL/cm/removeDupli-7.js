@@ -9,7 +9,7 @@ function main(input) {
     const N = inputs[0];
     let values = inputs[1].split(' ').map(Number);
 
-    // console.log(N, values);
+    console.log(N, values);
 
     let head = new ListNode(values[0]);
 
@@ -18,8 +18,8 @@ function main(input) {
         current.next = new ListNode(values[i]);
         current = current.next;
     }
-    // console.log(current);
-    // console.log(head);
+    console.log(current);
+    console.log(head);
 
     let hash = {};
     let prev = null;
@@ -34,8 +34,8 @@ function main(input) {
         }
         curr = curr.next;
     }
-    // console.log(hash);
-    // // console.log(head);
+    console.log(hash);
+    console.log(head);
 
     let result = [];
     current = head;
