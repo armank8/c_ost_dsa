@@ -54,10 +54,10 @@ function main(input) {
         sum = parseInt(curr1.val) + parseInt(curr2.val) + carry;
         console.log(sum);
 
-        carry = parseInt(sum % 10);
+        carry = parseInt(sum / 10);
         console.log(carry);
         
-        result += parseInt(sum / 10).toString();
+        result += parseInt(sum % 10).toString();
         console.log(result);
 
         curr1 = curr1.next;
