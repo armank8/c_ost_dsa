@@ -24,8 +24,32 @@ function checkPalindrome(head) {
         slow = slow.next;
         fast = fast.next.next;
     }
+    console.log(fast);
 
     console.log(slow);
+
+    let prev = null;
+    while (slow) {
+        let temp = slow.next;
+        slow.next = prev;
+        prev = slow;
+        slow = temp;
+
+    }
+    console.log(prev);
+
+    let left = head;
+    let right = prev;
+
+    while (right) {
+        if (left.val !== right.val) return false;
+        left = left.next;
+        right = right.next;
+    }
+
+    return true;
+
+
 }
 
 function main(input) {
@@ -41,5 +65,6 @@ function main(input) {
 }
 
 
-let input = "5\n1 2 3 4 5";
+// let input = "5\n1 2 3 4 5";
+let input = "5\n1 7 3 7 1";
 console.log(main(input));
