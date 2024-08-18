@@ -59,8 +59,6 @@ function nonDecreasing(head) {
     while (curr) {
         console.log(prevVal);
         if (curr.val >= prevVal) {
-            console.log(curr.val);
-            console.log(prevVal);
             prevVal = curr.val;
             curr = curr.next
         } else {
@@ -79,6 +77,11 @@ function main(input) {
     let ll = llCreation(N, values);
     // let palin = checkPalindrome(ll);
     let non = nonDecreasing(ll);
+    if (non) {
+        console.log("YES")
+    } else {
+        console.log("NO");
+    }
     console.log(non);
     console.log(ll);
     // console.log(palin);
@@ -88,6 +91,6 @@ function main(input) {
 
 // let input = "5\n1 2 3 4 5";
 // let input = "5\n1 7 3 7 1";
-// let input = "5\n1 3 3 6 7";
-let input = "3\n1 7 3";
+let input = "5\n1 3 3 6 7";
+// let input = "3\n1 7 3";
 console.log(main(input));
