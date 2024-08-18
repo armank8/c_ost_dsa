@@ -54,12 +54,14 @@ function checkPalindrome(head) {
 
 function nonDecreasing(head) {
     let curr = head;
+    let prevVal = 0;
+
     while (curr) {
-        let prevValue;
-        prevValue = curr.val;
-        console.log(prevValue);
-        if (curr.val <= prevValue) {
+        console.log(prevVal);
+        if (curr.val >= prevVal) {
             console.log(curr.val);
+            console.log(prevVal);
+            prevVal = curr.val;
             curr = curr.next
         } else {
             return false;
