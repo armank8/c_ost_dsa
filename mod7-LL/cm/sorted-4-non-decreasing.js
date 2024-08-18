@@ -13,7 +13,7 @@ function llCreation(N, values) {
         curr.next = new ListNode(values[i]);
         curr = curr.next;
     }
-    // console.log(head);
+    console.log(head);
     return head;
 }
 
@@ -52,19 +52,40 @@ function checkPalindrome(head) {
 
 }
 
+function nonDecreasing(head) {
+    let curr = head;
+    while (curr) {
+        let prevValue;
+        prevValue = curr.val;
+        console.log(prevValue);
+        if (curr.val <= prevValue) {
+            console.log(curr.val);
+            curr = curr.next
+        } else {
+            return false;
+        }
+
+    }
+    return true;
+}
+
 function main(input) {
     let N = input.split('\n')[0];
     let values = input.split('\n')[1].split(' ').map(Number);
     console.log(N, values);
 
     let ll = llCreation(N, values);
-    let palin = checkPalindrome(ll);
+    // let palin = checkPalindrome(ll);
+    let non = nonDecreasing(ll);
+    console.log(non);
     console.log(ll);
-    console.log(palin);
+    // console.log(palin);
 
 }
 
 
 // let input = "5\n1 2 3 4 5";
-let input = "5\n1 7 3 7 1";
+// let input = "5\n1 7 3 7 1";
+// let input = "5\n1 3 3 6 7";
+let input = "3\n1 7 3";
 console.log(main(input));
