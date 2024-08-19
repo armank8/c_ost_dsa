@@ -25,7 +25,7 @@ function deleteKth(N, K, head) {
     let prev = null;
     // let curr
 
-    for (let i = 1; i < K; i++) {
+    for (let i = 0; i < K; i++) {
         fast = fast.next;
     }
     console.log(fast);
@@ -57,5 +57,5 @@ function main(input) {
 
 
 
-let input = "5 5\n1 2 3 4 5";
+let input = "5 2\n1 2 3 4 5";
 console.log(main(input));
