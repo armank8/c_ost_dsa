@@ -6,6 +6,7 @@ class ListNode {
 }
 
 function llCreation(input) {
+    if (input.length === 0) return null;
     let head = new ListNode(input[0]);
     let curr = head;
 
@@ -48,13 +49,11 @@ function printList(head) {
 }
 
 function main(input) {
-
     let ll = llCreation(input);
     console.log(ll);
 
     let reversed = reverseList(ll);
     console.log(reversed);
-
     return printList(reversed);
 }
 
