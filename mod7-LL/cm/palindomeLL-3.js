@@ -59,8 +59,12 @@ function main(input) {
 
     let ll = llCreation(N, values);
     let palin = checkPalindrome(ll);
-    console.log(ll);
-    console.log(palin);
+
+    if (palin) {
+        console.log("YES");
+    } else {
+        console.log("NO");
+    }
 
 }
 
