@@ -68,6 +68,7 @@ function main(input) {
     if (carry === 1) {
         result += carry;
     }
+    result=result.split('').reverse().join('');
     console.log(result);
 
 

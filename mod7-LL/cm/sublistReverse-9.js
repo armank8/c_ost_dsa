@@ -31,7 +31,7 @@ function reverseList(head, m, n) {
 
     while (curr.next !== null) {
         console.log(length);
-        if (length < m) {
+        if (length <= m) {
             list.next = curr;
             list = list.next;
             curr = curr.next;
@@ -39,7 +39,7 @@ function reverseList(head, m, n) {
             console.log(list);
             length++;
         }
-        if (length >= m && length <= n) {
+        if (length > m && length <= n) {
             console.log(curr);
             next = curr.next;
             curr.next = prev;
@@ -65,18 +65,18 @@ function reverseList(head, m, n) {
 
 }
 
-function printList(head) {
-    console.log(head);
-    let curr = head;
-    let result = [];
+// function printList(head) {
+//     console.log(head);
+//     let curr = head;
+//     let result = [];
 
-    while (curr) {
-        result.push(curr.val);
-        curr = curr.next;
+//     while (curr) {
+//         result.push(curr.val);
+//         curr = curr.next;
 
-    }
-    console.log(result.join(' '));
-}
+//     }
+//     console.log(result.join(' '));
+// }
 
 function main(input) {
     const inputs = input.split('\n');
@@ -93,10 +93,12 @@ function main(input) {
     let reversed = reverseList(ll, m, n);
     console.log(reversed);
 
-    printList(reversed);
+    // printList(reversed);
 }
 
 
 // let input = "5\n1 5 8 6 3\n2 4";
 let input = "5\n1 2 3 4 5\n1 3";
 console.log(main(input));
+
+// This code is not correct 
