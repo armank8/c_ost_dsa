@@ -30,18 +30,37 @@ function deleteKth(N, K, head) {
     }
     console.log(fast);
 
+    if (!fast) {
+        return head.next;
+    }
+
     while (fast.next !== null) {
         fast = fast.next;
-        prev=slow;
         slow = slow.next;
     }
-    console.log(fast, slow);
-    console.log(prev);
 
-    prev.next = fast;
+   
+
+    console.log(fast, slow);
+
+    slow.next = slow.next.next;
 
     console.log(head);
+    return head;
 
+}
+
+function printList(head) {
+    console.log(head);
+    let curr = head;
+    let result = [];
+
+    while (curr) {
+        result.push(curr.val);
+        curr = curr.next;
+
+    }
+    console.log(result.join(' '));
 }
 
 function main(input) {
@@ -53,6 +72,10 @@ function main(input) {
     let ll = llCreation(N, values);
     console.log(ll);
     let kth = deleteKth(N, K, ll);
+    console.log(kth);
+
+    printList(kth);
+
 }
 
 
