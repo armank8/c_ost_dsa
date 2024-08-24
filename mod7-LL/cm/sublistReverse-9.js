@@ -102,3 +102,4 @@ let input = "5\n1 2 3 4 5\n1 3";
 console.log(main(input));
 
 // This code is not correct 
+// many confusions in this problem and concepts ----- practice more ----
