@@ -4,10 +4,10 @@ function nextGreaterElement(N, heights) {
     let results = [];
     let greater = 0;
 
-    for (let i = 0; i < heights.length - 1; i++) {
+    for (let i = 0; i < heights.length; i++) {
         // console.log(i);
-        for (let j = i + 1; j < heights.length; j++) {
-            // console.log(j);
+        for (let j = i+1; j < heights.length; j++) {
+            console.log(i,j);
             if (heights[j] > heights[i]) {
                 console.log(heights[i],heights[j])
                 // heights[i] = heights[j];
@@ -17,6 +17,7 @@ function nextGreaterElement(N, heights) {
 
         }
     }
+    results.push(-1);
     console.log(results);
 
 }
@@ -51,6 +52,6 @@ function main(input) {
 
 }
 
-// let input = "2\n7\n2 7 3 5 4 6 8\n5\n1 2 3 4 5";
-let input = "1\n7\n2 7 3 5 4 6 8";
+let input = "2\n7\n2 7 3 5 4 6 8\n5\n1 2 3 4 5";
+// let input = "1\n7\n2 7 3 5 4 6 8";
 console.log(main(input));
