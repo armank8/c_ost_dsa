@@ -36,9 +36,9 @@ function main(s) {
 }
 // Time Complexity- O(n) && Space Complexity- O(n)
 // ---------------------------------------------
-// let input1 = "(){}[]"
+// let input = "(){}[]"
 // let input = "()"
 // let input = "(]"
-// let input4 = "{()}"
+// let input = "{()}"
 let input = "{(})"
 console.log(main(input));
