@@ -1,6 +1,6 @@
 function task(N, arr) {
     console.log(N, arr);
-    arr.sort((a, b) => a > b);
+    arr.sort((a, b) => b-a);
     console.log(arr);
 
     let score = 0;
