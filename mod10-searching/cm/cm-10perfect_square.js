@@ -1,21 +1,26 @@
-function binarySearch(N, low, high) {
+// binarySearch recursion
+function binarySearchR(N, low, high) {
     let mid = parseInt((low + high) / 2);
     let sq = mid * mid;
 
-    console.log(N,low, high, mid, sq);
+    console.log(N, low, high, mid, sq);
 
     if (sq == N) {
         return true;
     } else if (sq > N) {
-        binarySearch(N, low, mid-1);
+        binarySearchR(N, low, mid - 1);
     } else {
-        binarySearch(N, mid+1, high);
+        binarySearchR(N, mid + 1, high);
     }
 
-    console.log(N,low, high, mid, sq);
+    console.log(N, low, high, mid, sq);
     // return false;
 }
 
+// binarySearch Iterative
+function binarySearchI() {
+
+}
 // brute force
 // function task(N, arr) {
 //     console.log(N);
@@ -30,14 +35,18 @@ function binarySearch(N, low, high) {
 function main(input) {
     // managing input values
     let N = parseInt(input);
+    // brute force
     // console.log(task(N));
 
 
     let low = 1;
     let high = parseInt(N / 2);
 
-    // binarySearch
-    console.log(binarySearch(N, low, high));
+    // binarySearch recursion
+    console.log(binarySearchR(N, low, high));
+
+    // binarySearch Iterative
+    console.log(binarySearchI());
 }
 
 let input = "49";
