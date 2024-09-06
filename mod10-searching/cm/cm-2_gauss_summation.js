@@ -36,14 +36,19 @@
 //     return 'NO';
 // }
 // brute force
-function task(N, arr) {
+function task(N) {
     console.log(N);
-    for (let i = 1; i < N / 2; i++) {
-        if (i * i == N) {
-            return 'YES';
+    let sum = 0;
+    let i;
+    for (i = 1; i <= N; i++) {
+        sum += i;
+        console.log(i);
+        if (sum >= N) {
+            break;
         }
     }
-    return 'NO';
+    console.log(i);
+    return i;
 }
 
 function main(input) {
@@ -51,7 +56,6 @@ function main(input) {
     let N = parseInt(input);
     // brute force
     console.log(task(N));
-
 
     // let low = 1;
     // let high = parseInt(N / 2);
@@ -64,6 +68,6 @@ function main(input) {
 }
 
 // let input = "49";
-// let input = "25";
-let input = "24";
+// let input = "16";
+let input = "6";
 console.log(main(input));
