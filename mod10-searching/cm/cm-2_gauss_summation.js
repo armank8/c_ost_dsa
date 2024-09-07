@@ -36,26 +36,26 @@
 //     return 'NO';
 // }
 // brute force
-function task(N) {
-    console.log(N);
-    let sum = 0;
-    let i;
-    for (i = 1; i <= N; i++) {
-        sum += i;
-        console.log(i);
-        if (sum >= N) {
-            break;
-        }
-    }
-    console.log(i);
-    return i;
-}
+// function task(N) {
+//     console.log(N);
+//     let sum = 0;
+//     let i;
+//     for (i = 1; i <= N; i++) {
+//         sum += i;
+//         console.log(i);
+//         if (sum >= N) {
+//             break;
+//         }
+//     }
+//     console.log(i);
+//     return i;
+// }
 
 function main(input) {
     // managing input values
     let N = parseInt(input);
     // brute force
-    console.log(task(N));
+    // console.log(task(N));
 
     // let low = 1;
     // let high = parseInt(N / 2);
@@ -64,7 +64,7 @@ function main(input) {
     // // console.log(binarySearchR(N, low, high));
 
     // // binarySearch Iterative
-    // console.log(binarySearchI(N, low, high));
+    console.log(binarySearchI(N, low, high));
 }
 
 // let input = "49";
