@@ -18,23 +18,25 @@
 // }
 
 // // binarySearch Iterative
-// function binarySearchI(N, low, high) {
-//     console.log(N, low, high);
+function binarySearchI(N, low, high) {
+    console.log(N, low, high);
+    let sum = 0;
+    let mid
 
-//     while (low <= high) {
-//         let mid = parseInt((low + high) / 2);
-//         let sq = mid * mid;
-//         console.log(sq,mid);
-//         if (sq == N) {
-//             return 'YES';
-//         } else if (sq < N) {
-//             low = mid + 1;
-//         } else {
-//             high = mid - 1
-//         }
-//     }
-//     return 'NO';
-// }
+    while (low < high) {
+        mid = parseInt((low + high) / 2);
+        sum = (mid * (mid + 1)) / 2;
+
+        console.log(sum,mid);
+        if (sum >= N) {
+            high = mid;
+        } else {
+            low = mid+1;
+        }
+    }
+    return low;
+}
+
 // brute force
 // function task(N) {
 //     console.log(N);
@@ -54,11 +56,13 @@
 function main(input) {
     // managing input values
     let N = parseInt(input);
+    console.log(N);
+
     // brute force
     // console.log(task(N));
 
-    // let low = 1;
-    // let high = parseInt(N / 2);
+    let low = 1;
+    let high = N;
 
     // // binarySearch recursion
     // // console.log(binarySearchR(N, low, high));
