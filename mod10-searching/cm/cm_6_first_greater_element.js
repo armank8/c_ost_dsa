@@ -1,3 +1,4 @@
+// task functions-- brute force
 function task(n, k, arr, q1) {
     console.log(n, k, arr, q1);
     let i;
@@ -7,9 +8,31 @@ function task(n, k, arr, q1) {
             break;
         }
     }
-
-
     return arr[i];
+}
+
+// binary search
+function bS(n, arr, q1) {
+    console.log(n, arr, q1);
+
+    let low = 0;
+    let high = n;
+    let mid;
+    console.log(mid);
+
+
+    while (low < high) {
+        mid = Math.floor((low + high) / 2);
+        if (arr[mid] > q1) {
+            high = mid;
+        } else {
+            low = mid + 1;
+        }
+    }
+
+    console.log(mid);
+
+
 }
 
 function main(input) {
@@ -29,7 +52,7 @@ function main(input) {
         // result.push(task(n, k, arr, q1 = parseInt(inputs[i])));
 
         // binary search
-
+        result.push(bS(n, arr, q1 = parseInt(inputs[i])));
         console.log(result);
     }
 
