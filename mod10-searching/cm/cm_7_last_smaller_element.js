@@ -29,19 +29,15 @@ function main(input) {
     console.log(inputs);
     let [n,k] = inputs[0].split(' ').map(Number);
     let arr = inputs[1].split(' ').map(Number);
-    // let queries = inputs[2].split(' ').map(Number);
-    console.log(n, k, arr);
+    let queries = inputs[2].split(' ').map(Number);
+    console.log(n, k, arr,queries);
 
 
     let result = [];
     for (let i = 0; i < k; i++) {
-        let query = parseInt(inputs[i+2]);
-        console.log(query);
-        // task functions-- brute force
-        // result.push(task(n, k, arr, q1 = parseInt(inputs[i])));
-
         // binary search
-        result.push(bS(arr, query));
+        // console.log((bS(arr, query)));
+        result.push(bS(arr, queries[i]));
         console.log(result);
     }
 
@@ -49,5 +45,6 @@ function main(input) {
     console.log(result.join('\n'));
 }
 
-let input = "5 2\n3 8 10 10 14\n10\n7";
+let input = "5 2\n3 8 10 10 14\n10 7";
+// let input = "24 11\n56 62 79 79 151 227 237 280 304 311 318 360 480 600 669 694 714 723 742 813 870 885 903 908\n751 627 767 413 743 390 348 609 713 876 200";
 console.log(main(input));
