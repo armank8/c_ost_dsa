@@ -1,36 +1,25 @@
-// task functions-- brute force
-// function task(n, k, arr, q1) {
-//     console.log(n, k, arr, q1);
-//     let i;
-//     for (i = 0; i < n; i++) {
-//         if (arr[i] > q1) {
-//             console.log(arr[i]);
-//             break;
-//         }
-//     }
-//     return arr[i];
-// }
 
 // binary search
-function bS(n, arr, q1) {
-    console.log(n, arr, q1);
+function bS(arr, q1) {
+    console.log(arr, q1);
 
     let low = 0;
-    let high = n-1;
+    let high = arr.length - 1;
     let mid;
-    console.log(mid);
+    let ans = -1;
 
 
-    while (low < high) {
+    while (low <= high) {
         mid = Math.floor((low + high) / 2);
         console.log(mid);
-        if (arr[mid] >= q1) {
-            high = mid;
+        if (arr[mid] < q1) {
+            ans = arr[mid];
+            low = mid + 1;
         } else {
-            low = mid+1;
+            high = mid - 1;
         }
     }
-    return (arr[mid]);
+    return ans;
 }
 
 function main(input) {
@@ -38,20 +27,21 @@ function main(input) {
     console.log(input);
     let inputs = input.split('\n');
     console.log(inputs);
-    let n = parseInt(inputs[0].split(' ')[0]);
-    let k = parseInt(inputs[0].split(' ')[1]);
+    let [n,k] = inputs[0].split(' ').map(Number);
     let arr = inputs[1].split(' ').map(Number);
-    console.log(n,k,arr);
+    // let queries = inputs[2].split(' ').map(Number);
+    console.log(n, k, arr);
+
 
     let result = [];
-    for (let i = 2; i < k + 2; i++) {
-        console.log(parseInt(inputs[i]));
-
+    for (let i = 0; i < k; i++) {
+        let query = parseInt(inputs[i+2]);
+        console.log(query);
         // task functions-- brute force
         // result.push(task(n, k, arr, q1 = parseInt(inputs[i])));
 
         // binary search
-        result.push(bS(n, arr, q1 = parseInt(inputs[i])));
+        result.push(bS(arr, query));
         console.log(result);
     }
 
