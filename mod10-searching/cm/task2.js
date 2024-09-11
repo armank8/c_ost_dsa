@@ -8,23 +8,20 @@ function task(n, arr, x) {
     console.log(min);
     // let min = 0;
 
-    while (low <= high) {
+    while (low < high) {
         mid = Math.floor((low + high) / 2);
         console.log(mid);
-        if (arr[low] <= arr[mid]) {
-            min = Math.min(arr[low], min);
-            if (arr[high] < min) {
-                low = mid + 1;
-            }
-        }else{
+        if (arr[mid] > arr[high]) {
+            min = Math.min(arr[high], min);
+            low = mid + 1;
+
+        } else {
             min = Math.min(arr[mid], min);
-            if(arr[low]>arr[mid]){
-                high = mid-1;
-            }
+            high = mid;
         }
     }
-
-    return min;
+    return arr[low];
+    // return min;
 }
 
 function main(arr) {
