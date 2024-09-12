@@ -9,7 +9,6 @@ class Tree {
     constructor() {
         this.root = null;
     }
-
     insert(value, parentNode = null) {
         // console.log(this.root);
         // console.log(value);
@@ -22,8 +21,18 @@ class Tree {
             const parent = parentNode || this.root;
             parent.children.push(newNode);
         }
-
         return newNode;
+    }
+
+    dfs(node = this.root, visitFn) {
+        visitFn(node);
+        console.log(node.value);
+
+        if (node.children.length > 0) {
+            node.children.forEach(child => this.dfs(child, visitFn))
+        }
+        // console.log(node.value);
+        return node.value;
     }
 }
 
@@ -38,3 +47,5 @@ const node5 = tree.insert(5, node2);
 const node6 = tree.insert(6, node3);
 
 console.log(tree);
+
+tree.dfs(undefined, node => console.log(node.value));
