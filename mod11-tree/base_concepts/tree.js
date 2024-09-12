@@ -34,6 +34,17 @@ class Tree {
         // console.log(node.value);
         return node.value;
     }
+
+    bfs(visitFn) {
+        const queue = [this.root];
+        while (queue.length > 0) {
+            const node = queue.shift();
+            visitFn(node);
+            console.log(node.value);
+            queue.push(...node.children);
+
+        }
+    }
 }
 
 
@@ -48,4 +59,6 @@ const node6 = tree.insert(6, node3);
 
 console.log(tree);
 
+// DFS
 tree.dfs(undefined, node => console.log(node.value));
+tree.bfs( node => console.log(node.value));
