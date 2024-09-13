@@ -45,6 +45,14 @@ class Tree {
 
         }
     }
+
+    inorder(node = this.root, visitFn) {
+        if (node !== null) {
+            this.inorder(node.left);
+            console.log(node.value);
+            this.inorder(node.right);
+        }
+    }
 }
 
 
@@ -61,4 +69,6 @@ console.log(tree);
 
 // DFS
 tree.dfs(undefined, node => console.log(node.value));
-tree.bfs( node => console.log(node.value));
+tree.bfs(node => console.log(node.value));
+
+tree.inorder(undefined, node => console.log(node.value));
