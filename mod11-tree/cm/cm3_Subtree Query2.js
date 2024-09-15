@@ -12,6 +12,20 @@ function task(N, Q, edges, queries) {
 
     }
     console.log(tree);
+
+    let leafCount= Array(N+1).fill(0);
+    let visited=Array(N+1).fill(false);
+    console.log(leafCount,visited);
+
+
+    function dfs(node){
+        
+    }
+
+
+    dfs(1);
+
+    
 }
 
 function main(input) {
