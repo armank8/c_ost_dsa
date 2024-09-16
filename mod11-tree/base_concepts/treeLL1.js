@@ -88,17 +88,21 @@ class BinaryTree {
 
     }
 
-    findValue(node,value) {
+    findValue(node, value) {
         if (!node) return false;
         if (node.value === value) return node;
 
         return this.findValue(node.left, value) || this.findValue(node.right, value);
-
+    }
+    countLeafNode(node) {
+        if (!node) return 0;
+        if (!node.left && !node.right) return 1;
+        return this.countLeafNode(node.left) + this.countLeafNode(node.right);
     }
 }
 
 const tree = new BinaryTree();
-tree.insert([1, 2, 3, 4, 5, 6]);
+tree.insert([1, 2, 3, 4, 5, 6,7,8,9]);
 console.log(tree.dfsPreOrder(tree.root));
 console.log(tree.dfsInOrder(tree.root));
 console.log(tree.dfsPostOrder(tree.root));
@@ -106,7 +110,8 @@ console.log(tree.bfs(tree.root));
 
 // console.log(tree.invertTree(tree.root));
 console.log(tree.maxDepth(tree.root));
-console.log(tree.findValue(tree.root,3));
+console.log(tree.findValue(tree.root, 3));
+console.log(tree.countLeafNode(tree.root));
 
 console.log(tree);
 
