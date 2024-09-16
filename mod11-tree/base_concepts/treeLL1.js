@@ -63,10 +63,20 @@ class BinaryTree {
             let currNode = queue.shift();
             console.log(currNode.value);
 
-            if(currNode.left) queue.push(currNode.left);
-            if(currNode.right) queue.push(currNode.right);
-
+            if (currNode.left) queue.push(currNode.left);
+            if (currNode.right) queue.push(currNode.right);
         }
+    }
+
+    invertTree(node) {
+        if (!node) return null;
+        let left = this.invertTree(node.left);
+        let right = this.invertTree(node.right);
+
+        node.left = right;
+        node.right = left;
+
+        return node;
     }
 }
 
@@ -76,6 +86,8 @@ console.log(tree.dfsPreOrder(tree.root));
 console.log(tree.dfsInOrder(tree.root));
 console.log(tree.dfsPostOrder(tree.root));
 console.log(tree.bfs(tree.root));
+
+console.log(tree.invertTree(tree.root));
 
 console.log(tree);
 
