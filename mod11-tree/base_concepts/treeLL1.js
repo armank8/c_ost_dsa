@@ -36,9 +36,25 @@ class BinaryTree {
 
         }
     }
+
+    dfsPreOrder(node){
+        if(!node) return ;
+        console.log(node.value);
+        this.dfsPreOrder(node.left);
+        this.dfsPreOrder(node.right);
+    }
+    dfsInOrder(node){
+        if(!node) return ;
+        this.dfsInOrder(node.left);
+        console.log(node.value);
+        this.dfsInOrder(node.right);
+    }
 }
 
 const tree = new BinaryTree();
 tree.insert([1, 2, 3, 4, 5, 6]);
+console.log(tree.dfsPreOrder(tree.root));
+console.log(tree.dfsInOrder(tree.root));
 
 console.log(tree);
+
