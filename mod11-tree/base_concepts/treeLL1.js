@@ -78,6 +78,23 @@ class BinaryTree {
 
         return node;
     }
+    maxDepth(node) {
+        if (!node) return 0;
+
+        let leftDepth = this.maxDepth(node.left);
+        let rightDepth = this.maxDepth(node.right);
+
+        return Math.max(leftDepth, rightDepth) + 1;
+
+    }
+
+    findValue(node,value) {
+        if (!node) return false;
+        if (node.value === value) return node;
+
+        return this.findValue(node.left, value) || this.findValue(node.right, value);
+
+    }
 }
 
 const tree = new BinaryTree();
@@ -87,7 +104,9 @@ console.log(tree.dfsInOrder(tree.root));
 console.log(tree.dfsPostOrder(tree.root));
 console.log(tree.bfs(tree.root));
 
-console.log(tree.invertTree(tree.root));
+// console.log(tree.invertTree(tree.root));
+console.log(tree.maxDepth(tree.root));
+console.log(tree.findValue(tree.root,3));
 
 console.log(tree);
 
