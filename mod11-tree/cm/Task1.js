@@ -10,15 +10,11 @@ class Tree {
     constructor() {
         this.root = null;
     }
-
     insert(values) {
         console.log(values);
         if (!values && values.length === 0) return;
-
         this.root = new TreeNode(values[0]);
         let queue = [this.root];
-
-
 
         let index = 1;
         while (queue.length >= 0 && index < values.length) {
@@ -32,11 +28,19 @@ class Tree {
                 queue.push(currNode.right);
             }
         }
-
         return this.root;
     }
-}
 
+    findHeight(node) {
+        if (!node) return 0;
+
+        return Math.max(this.findHeight(node.left), this.findHeight(node.right)) + 1;
+    }
+
+
+}
 const tree = new Tree();
-// console.log(tree.insert([3, 9, 20, null, null, 15, 7]));
+console.log(tree.insert([3, 9, 20, null, null, 15, 7]));
 console.log(tree.insert([1, null, 2]));
+// console.log(tree.root);
+console.log(tree.findHeight(tree.root));
