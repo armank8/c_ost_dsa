@@ -102,7 +102,7 @@ class BinaryTree {
 }
 
 const tree = new BinaryTree();
-tree.insert([1, 2, 3, 4, 5, 6,7,8,9]);
+tree.insert([1, 2, 3, 4, 5, ,6,]);
 console.log(tree.dfsPreOrder(tree.root));
 console.log(tree.dfsInOrder(tree.root));
 console.log(tree.dfsPostOrder(tree.root));
