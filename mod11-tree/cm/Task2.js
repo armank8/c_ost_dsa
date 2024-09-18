@@ -38,21 +38,33 @@ class BinarySearchTree {
         }
     }
 
-    inOrder(node = this.root, target) {
+    inOrder(node) {
         if (node !== null) {
             this.inOrder(node.left);
             console.log(node.value);
-            if (node.value === target) {
-                return true
-            }
-            // return node.value;
             this.inOrder(node.right);
         }
     }
+
+    findNode(node, val) {
+        console.log(node, val);
+        if (node !== null) {
+            if (node.value === val) {
+                return node;
+            } else if (node.value > val) {
+                return this.findNode(node.left, val)
+            } else {
+                return this.findNode(node.right, val)
+            }
+        }
+        return null;
+    }
 }
 
-const bst = new BinarySearchTree();
 let values = [4, 2, 7, 1, 3];
+const bst = new BinarySearchTree();
 values.forEach(value => bst.insert(value));
 console.log(bst);
-console.log(bst.inOrder(this.root, 2));
+
+console.log(bst.inOrder(bst.root));
+console.log(bst.findNode(bst.root, 2));
