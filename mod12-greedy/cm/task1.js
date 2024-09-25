@@ -6,17 +6,26 @@ function main(boxTypes, truckSize) {
 
 
     for (let i = 0; i < boxTypes.length; i++) {
-        for (let j = 0; j < boxTypes[i].length; j++) {
-            console.log(boxTypes[i][j]);
+        console.log(boxTypes[i]);
+        let numberOfBoxes = boxTypes[i][0];
+        let unitsPerBox = boxTypes[i][1];
+        console.log(numberOfBoxes, unitsPerBox);
 
+        let boxesToTake = Math.min(numberOfBoxes, truckSize);
 
-            if (truckSize == 0) {
-                return numberOfUnits;
-            }
+        totalUnits = totalUnits + boxesToTake * unitsPerBox;
+
+        truckSize = truckSize - boxesToTake;
+
+        if (truckSize === 0) {
+            break;
         }
     }
+
+    return totalUnits;
 }
 
-let boxTypes = [[1, 3], [2, 2], [3, 1]];
-truckSize = 4;
+// let boxTypes = [[1, 3], [2, 2], [3, 1]];
+let boxTypes = [[5, 10], [2, 5], [4, 7], [3, 9]];
+truckSize = 10;
 console.log(main(boxTypes, truckSize));
