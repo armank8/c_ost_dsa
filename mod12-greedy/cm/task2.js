@@ -11,14 +11,8 @@ function main(arr) {
             count++;
             lastIndex = arr[i][1];
         }
-
         console.log(lastIndex);
-
-
     }
-
-    console.log(arr);
-
     return count;
 }
 

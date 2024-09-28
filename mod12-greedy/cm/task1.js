@@ -6,7 +6,6 @@ function main(boxTypes, truckSize) {
 
 
     for (let i = 0; i < boxTypes.length; i++) {
-        console.log(boxTypes[i]);
         let numberOfBoxes = boxTypes[i][0];
         let unitsPerBox = boxTypes[i][1];
         console.log(numberOfBoxes, unitsPerBox);
@@ -25,7 +24,7 @@ function main(boxTypes, truckSize) {
     return totalUnits;
 }
 
-// let boxTypes = [[1, 3], [2, 2], [3, 1]];
-let boxTypes = [[5, 10], [2, 5], [4, 7], [3, 9]];
-truckSize = 10;
+let boxTypes = [[1, 3], [2, 2], [3, 1]];
+// let boxTypes = [[5, 10], [2, 5], [4, 7], [3, 9]];
+truckSize = 4;
 console.log(main(boxTypes, truckSize));
