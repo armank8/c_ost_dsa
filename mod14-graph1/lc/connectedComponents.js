@@ -11,8 +11,19 @@ function createAdjMatrix(n, edges) {
     return adjMatrix;
 }
 
-function bfs(startNode,adjMatrix,visited){
-    
+function bfs(startNode, adjMatrix, visited) {
+    const queue = [startNode];
+    visited[startNode] = true;
+
+    while (queue.length > 0) {
+        const node = queue.shift();
+        for (let neighbor = 0; neighbor < adjMatrix.length; neighbor++) {
+            if (adjMatrix[node][neighbor] === 1 && !visited[neighbor]) {
+                queue.push(neighbor);
+                visited[neighbor] = true;
+            }
+        }
+    }
 }
 
 function countComponentsBFS(n, edges) {
@@ -24,8 +35,8 @@ function countComponentsBFS(n, edges) {
 
     let components = 0;
     for (let i = 0; i < n; i++) {
-        if(!visited[i]){
-            bfs(i,adjMatrix,visited);
+        if (!visited[i]) {
+            bfs(i, adjMatrix, visited);
             components++;
         }
     }
