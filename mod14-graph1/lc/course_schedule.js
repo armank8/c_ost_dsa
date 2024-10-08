@@ -23,12 +23,14 @@ function canFinish(numCourses, prerequisites) {
         }
     }
 
-    let result = [];
+    console.log(queue);
+
+    let visited = 0;
 
     //perform bfs
     while (queue.length > 0) {
         let course = queue.shift();
-        result.push(course);
+        visited++;
 
         for (let neighbor of adjList[course]) {
             inDegree[neighbor]--;
@@ -37,7 +39,7 @@ function canFinish(numCourses, prerequisites) {
             }
         }
     }
-    return result.length === numCourses ? result : [];
+    return visited === numCourses;
 }
 
 console.log(canFinish(4, [[1, 0], [2, 1], [3, 2]]));
