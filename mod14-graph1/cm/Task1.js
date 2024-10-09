@@ -36,8 +36,8 @@ function validPath(n, edges, src, dest) {
     return false;
 }
 
-let n = 3;
-let edges = [[0, 1], [1, 2], [2, 0]];
+let n = 6;
+let edges =  [[0,1],[0,2],[3,5],[5,4],[4,3]];
 let src = 0;
-let dest = 2
+let dest = 5;
 console.log(validPath(n, edges, src, dest));
