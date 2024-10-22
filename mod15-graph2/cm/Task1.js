@@ -9,8 +9,7 @@ function findCycle(A, B) {
         console.log(u,v);
         matrix[u][v]=1;       
     }
-    console.log(matrix);
-
+    console.log(matrix)
     
 
 }
