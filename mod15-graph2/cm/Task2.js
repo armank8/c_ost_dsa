@@ -16,9 +16,7 @@ function countValidPaths(A, B, C) {
 
     function dfs(node, parent, goodCount) {
         if (A[node - 1] === 1) goodCount++;
-
         if (goodCount > C) return;
-
         let isLeaf = true;
 
         for (let neighbor of adjL[node]) {
@@ -29,13 +27,9 @@ function countValidPaths(A, B, C) {
             }
         }
         if (isLeaf) validPaths++;
-
     }
-
     dfs(1, -1, 0);
-
     return validPaths;
-
 }
 
 let A = [0, 1, 0, 1, 1, 1];
