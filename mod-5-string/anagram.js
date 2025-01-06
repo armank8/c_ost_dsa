@@ -61,4 +61,4 @@ function main(input) {
     return "YES";
 }
 
-console.log(main('ab\ndb'))
+console.log(main('ab\nbc'))
