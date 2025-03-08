@@ -1,28 +1,27 @@
 var merge = function(nums1, m, nums2, n) {
     console.log(nums1,nums2);
-    let i=0;
-    let j=0;
-    let merged=[];
-    while(i<nums1.length && j<nums2.length){
-        if(nums1[i]<nums2[j]){
-            merged.push(nums1[i]);
-            i++;
+    let i=m-1;
+    let j=n-1;
+    let k = m + n - 1;
+    console.log(i,j,k);
+    
+    while(i >= 0 && j >= 0){
+        if(nums1[i]>nums2[j]){
+            nums1[k] = nums1[i];
+            i--;
         }else{
-            merged.push(nums2[j]);
-            j++;
+            nums1[k] = nums2[j];
+            j--;
         }
     }
-    while(i<nums1.length){
-        merged.push(nums1[i]);
-        i++;
+    while(j>=0){
+        nums1[k] = nums2[j];
+        j--;
+        k--;
     }
-    while(j<nums2.length){
-        merged.push(nums2[j]);
-        j++;
-    }
-    console.log(i,j);
-    console.log(merged);
+    
+   
 
 };
 
-console.log(merge([1,2,3],3,[2,5,6],3));
+console.log(merge([1,2,3,0,0,0],3,[2,5,6],3));
