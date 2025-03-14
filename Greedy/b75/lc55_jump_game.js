@@ -20,6 +20,6 @@ function main(nums) {
     return false;
 }
 
-let nums = [2, 3, 1, 1, 4];
-// let nums = [3, 2, 1, 0, 4];
+// let nums = [2, 3, 1, 1, 4];
+let nums = [3, 2, 1, 0, 4];
 console.log(main(nums));
