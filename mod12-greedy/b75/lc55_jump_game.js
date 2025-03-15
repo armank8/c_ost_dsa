@@ -1,25 +1,20 @@
 function main(nums) {
     console.log(nums);
-    let idx = nums.length - 1;
+    let maxReach=0;
 
-    let i = 0;
-    while (i <= idx) {
+    for(let i=0; i<nums.length; i++){
+        maxReach = Math.max(maxReach, i+nums[i]);
         console.log(i);
-        i = i + nums[i];
-        console.log(i);
+        console.log(maxReach);
 
-        if (nums[i] == 0) {
-            return false;
-        }
-
-        if (i >= idx) {
-            console.log(i);
+        if(maxReach>= nums.length -1 ){
             return true;
         }
+        if(i === maxReach && nums[i] === 0 ) return false;
     }
     return false;
 }
 
 // let nums = [2, 3, 1, 1, 4];
-let nums = [3, 2, 1, 0, 4];
+let nums = [3,2,1,0,4];
 console.log(main(nums));
