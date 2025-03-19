@@ -16,5 +16,7 @@ var search = function (nums, target) {
   }
   return -1;
 };
-
+// Time C - O(log n) - beacuse the search space is 
+// divided in half each time
+// Space C - O(1)
 console.log(search([-1, 0, 3, 5, 9, 12], 9));
