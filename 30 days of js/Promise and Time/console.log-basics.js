@@ -5,7 +5,7 @@
 // }
 // console.log(test(1, 2, 3));
 
-console.log(typeof console.log);
+// console.log(typeof console.log);
 /**
  * Since console.log is a function, we can :
  * Assign it to a variable
@@ -14,16 +14,18 @@ console.log(typeof console.log);
  */
 
 // Assign to a variable
-const log = console.log;
-log("This works");
+// const log = console.log;
+// log("This works");
 
 // Pass console.log as an argument
 // Since functions are first-class citizens in js,
 // console.log can be passed as an argument!. 
-function execute(fn){
-    fn("Logging via function parameter!");
-}
-execute(console.log);
+// function execute(fn){
+//     fn("Logging via function parameter!");
+// }
+// execute(console.log);
+
+
 
 /** What type of Function is console.log?
  
