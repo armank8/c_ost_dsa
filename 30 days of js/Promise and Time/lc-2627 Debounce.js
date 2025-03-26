@@ -1,4 +1,19 @@
 // 2627: Debounce
+/** A debounce function ensures that a 
+function is called only after a certain
+delay has passed since the last time it
+was invoked. If a new invocation happens
+within the delay, the timer resets. 
+
+Debouncing is commonly used in:
+Search input fields (delaying API calls while typing)
+Window resize events (preventing excessive recalculations)
+Button click handling (preventing multiple submissions)
+
+ 
+ */
+
+
 
 /**here debounce is a higher-order function(a function
    that returns another function)--It takes two parameters
@@ -18,24 +33,23 @@
 */
 
 
-// var debounce = function (fn, t) {
-//   let timer;
-//   return function (...args) {
-//     console.log("Debounce called with:", args);
-//     clearTimeout(timer);
-//     timer = setTimeout(() => {
-//       console.log("Executing function...");
-//       fn(...args);
-//     }, t);
-//   };
-// };
+var debounce = function (fn, t) {
+  let timer;
+  return function (...args) {
+    console.log("Debounce called with:", args);
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      console.log("Executing function...");
+      fn(...args);
+    }, t);
+  };
+};
 // let t = 50;
 // let calls = [
 //   { t: 50, inputs: [1] },
 //   { t: 75, inputs: [2] },
 // ];
 
-// const debouncedLog = debounce(console.log, 100);
-
-// debouncedLog("First Call");
-// debouncedLog("Second Call");
+const debouncedLog = debounce(console.log, 100);
+debouncedLog("First Call");
+debouncedLog("Second Call");
