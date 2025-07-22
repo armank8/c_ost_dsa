@@ -17,6 +17,6 @@ var reverse = function(x) {
     }
     return reversed;
 };
-console.log(reverse(123));
+// console.log(reverse(123));
 console.log(reverse(-124));
 // console.log(reverse(120));

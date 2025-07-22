@@ -4,7 +4,10 @@ var search = function (nums, target) {
   let right = n - 1;
 
   while (left <= right) {
+    console.log(left);
+    console.log(right);
     let mid = Math.floor((left + right) / 2);
+    console.log(mid);
 
     if (nums[mid] === target) {
       return mid;
@@ -25,4 +28,5 @@ var search = function (nums, target) {
   return -1;
 };
 
-console.log(search([4, 5, 6, 7, 0, 1, 2], 3));
+// console.log(search([4, 5, 6, 7, 0, 1, 2], 3));
+console.log(search([4,6,9,10,12,19,20,1,2,3], 3));
